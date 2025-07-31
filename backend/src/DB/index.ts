@@ -1,7 +1,9 @@
 import mongoose, { model, Schema, Types } from "mongoose";
 const ObjectId = Schema.ObjectId;
+mongoose.connect("mongodb+srv://amityadav0612:PcvZ7RGmYPJon1LY@cluster0.ysumnh1.mongodb.net/Second-Brain");
 
 const user = new Schema({
+  email:{type:String,required:true,unique:true},
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 });
@@ -22,14 +24,8 @@ const link = new Schema({
   userId: { type: Types.ObjectId, ref: "user", required: true },
 });
 
-const userModel = model("userModel", user);
-const tagModel = model("tagModel", tag);
-const contentModel = model("contentModel", content);
-const linkModel = model("linkModel", link);
+export const userModel = model("userModel", user);
+export const tagModel = model("tagModel", tag);
+export const contentModel = model("contentModel", content);
+export const linkModel = model("linkModel", link);
 
-module.exports = {
-  userModel,
-  tagModel,
-  contentModel,
-  linkModel,
-};
