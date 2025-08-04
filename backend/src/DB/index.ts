@@ -1,6 +1,7 @@
 import mongoose, { model, Schema, Types } from "mongoose";
+import { DB_URL } from "../config";
 const ObjectId = Schema.ObjectId;
-mongoose.connect("mongodb+srv://amityadav0612:PcvZ7RGmYPJon1LY@cluster0.ysumnh1.mongodb.net/Second-Brain");
+mongoose.connect(DB_URL);
 
 const user = new Schema({
   email:{type:String,required:true,unique:true},

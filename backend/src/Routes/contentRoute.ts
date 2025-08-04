@@ -22,3 +22,18 @@ contentRouter.post("/content", authMiddleware, async (req, res) => {
     });
   }
 });
+
+
+contentRouter.get("/content",authMiddleware,async(req,res)=>{
+
+  try{
+    const data=await contentModel.find({
+      
+    })
+
+  }
+  catch{
+
+  }
+
+})
