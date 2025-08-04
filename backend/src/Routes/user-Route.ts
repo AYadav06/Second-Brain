@@ -1,11 +1,20 @@
 import { Router } from "express";
-import { z } from "zod";
+import {  z } from "zod";
 import { userModel } from "../DB";
-import bcrypt from "bcrypt"; 
+import bcrypt from "bcrypt";
+import * as jwt from "jsonwebtoken";
+import "dotenv/config";
+  
+
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error("FATAL ERROR: JWT_SECRET is not defined in .env file.");
+}
 
 export const userRouter = Router();
 
-// Password strength validation schema
+
 const passwordSchema = z
   .string()
   .min(8, "Password must be at least 8 characters")
@@ -15,10 +24,10 @@ const passwordSchema = z
   .regex(/[0-9]/, "Must contain at least one number")
   .regex(/[^A-Za-z0-9]/, "Must contain at least one special character");
 
-// Signup schema
-const signUpSchema = z.object({
+
+export const signUpSchema = z.object({
   username: z.string().min(2).max(10),
-  email: z.string().email(),
+  email: z.string(),
   password: passwordSchema,
 });
 
@@ -35,17 +44,14 @@ userRouter.post("/signup", async (req, res) => {
       });
     }
 
-    // 3. Hash password asynchronously (bcrypt default cost = 10)
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // 4. Create user
+ 
     await userModel.create({
       username,
       email,
       password: hashedPassword,
     });
-
-    // 5. Respond with success
     return res.status(201).json({
       message: "User signup successful",
     });
@@ -62,3 +68,37 @@ userRouter.post("/signup", async (req, res) => {
     });
   }
 });
+
+
+userRouter.post("/signin", async (req, res) => {
+  const { username, email, password } = signUpSchema.parse(req.body);
+
+  try {
+    const user = await userModel.findOne({
+      username,
+      email,
+    });
+
+    if (user) {
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+
+      if (isPasswordValid) {
+        const token = jwt.sign(
+          {
+            username,
+          },
+          JWT_SECRET
+        );
+        return res.json({ token });
+      } else {
+        return res.status(401).json({ message: "Invalid password" });
+      }
+    } else {
+      return res.status(404).json({ message: "User not found" });
+    }
+  } catch (error) {
+    console.error("Signin error:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+});
+
