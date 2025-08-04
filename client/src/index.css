@@ -2,4 +2,15 @@
 
 @theme {
   --color-primary:#5a52c7;
+  --color-primary-dark:#4841a3;
+  --color-dark-bg:black;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+   background-color: black;
+    color: white;
 }
