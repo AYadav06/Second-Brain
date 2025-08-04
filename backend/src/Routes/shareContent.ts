@@ -4,8 +4,4 @@ import { authMiddleware } from "../middleware/auth";
 const shareRouter=Router();
 
 shareRouter.post("/share",authMiddleware,(req,res)=>{
-
-    const share=req.body.share;
-
-    
 })
