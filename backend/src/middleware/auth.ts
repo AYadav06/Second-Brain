@@ -6,7 +6,6 @@ const JWT_User=process.env.JWT_SECRET;
 if (!JWT_User) {
     throw new Error(' environment variables are not set!');
   }
-console.log("jwt_user auth is ",JWT_User);
 interface AuthenticatedRequest extends Request {
   user?: string | jwt.JwtPayload;
 }
