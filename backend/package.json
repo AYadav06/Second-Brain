@@ -25,6 +25,7 @@
     "zod": "^4.0.14"
   },
   "devDependencies": {
-    "@types/bcrypt": "^6.0.0"
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^24.1.0"
   }
 }
