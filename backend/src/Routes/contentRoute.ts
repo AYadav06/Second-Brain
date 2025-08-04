@@ -11,7 +11,7 @@ contentRouter.post("/content", authMiddleware, async (req, res) => {
       title: title,
       type: type,
       link: link,
-      tags: tags,
+      tags: [],
     });
     res.status(200).json({
       message: "brain is created ..",
@@ -23,17 +23,50 @@ contentRouter.post("/content", authMiddleware, async (req, res) => {
   }
 });
 
-
 contentRouter.get("/content",authMiddleware,async(req,res)=>{
+  const userId=req.body;
 
   try{
-    const data=await contentModel.find({
+    const content=await contentModel.find({
+      userId:userId
       
-    })
+    }).populate("userId","username")
 
+    res.json({
+      content
+    })
   }
   catch{
-
+res.json({
+  message:"error while fetching tweets."
+})
   }
 
 })
+
+
+contentRouter.delete("/content/:contentId", authMiddleware, async (req, res) => {
+  const { contentId } = req.params;
+  // @ts-ignore
+  const userId = req.userId;
+
+  try {
+    const content = await contentModel.findById(contentId);
+
+    if (!content) {
+      return res.status(404).json({ message: "Content not found" });
+    }
+
+    if (content.userId !== userId) {
+      return res.status(403).json({ message: "Action not allowed" });
+    }
+
+    await contentModel.deleteOne({ _id: contentId });
+
+    res.json({ message: "Content deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
