@@ -7,7 +7,6 @@ import React from 'react';
     { icon: '🔗', title: 'Automatic Connections', description: 'Mind-OS automatically discovers relationships between your notes, creating a dynamic knowledge graph you can explore visually.' },
     { icon: '🔍', title: 'Universal Search', description: 'Find anything, instantly. Our powerful search scans titles, content, and even the text within images and PDFs.' },
   ];
-
   return (
     <section id="features" className="max-w-6xl px-4 py-20 mx-auto text-center">
       <h2 className="mb-12 text-4xl font-bold md:text-5xl">A System Built for Flow</h2>

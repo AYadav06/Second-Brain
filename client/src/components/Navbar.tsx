@@ -11,7 +11,7 @@ const Logo = () => (
 
  export const Navbar: React.FC = () => {
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between p-4 px-6 bg-dark-bg/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 flex items-center justify-between p-4 px-6  mt-5 bg-dark-bg/80 backdrop-blur-md">
       <div className="flex items-center gap-3">
         <Logo />
         <span className="text-2xl font-bold">Mind-OS</span>
@@ -22,11 +22,11 @@ const Logo = () => (
         <a href="#blog" className="hover:text-primary transition-colors">Blog</a>
       </div>
       <div className="flex items-center gap-4">
-        <button className="px-4 py-2 font-semibold text-white transition-colors border rounded-lg border-primary hover:bg-primary">
+        <button className="px-4 py-2 font-semibold text-white transition-colors border rounded-lg border-primary hover:bg-primary ">
           Login
         </button>
         <button className="hidden px-4 py-2 font-semibold text-white transition-colors rounded-lg sm:block bg-primary hover:bg-primary-dark">
-          Sign Up Free
+          Sign Up 
         </button>
       </div>
     </nav>

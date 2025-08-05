@@ -7,7 +7,7 @@ import { Footer } from '../components/Footer'
 
 export const Home = () => {
   return (
-    <div>
+    <div className='bg-gradient-to-br from-primary via-dark-bg to-primary'>
         <Navbar />
         <Hero />
         <FeaturesC />
