@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Logo = () => (
   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,6 +11,7 @@ const Logo = () => (
 );
 
  export const Navbar: React.FC = () => {
+  const navigate=useNavigate();
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between p-4 px-6  mt-5 bg-dark-bg/80 backdrop-blur-md">
       <div className="flex items-center gap-3">
@@ -22,10 +24,12 @@ const Logo = () => (
         <a href="#blog" className="hover:text-primary transition-colors">Blog</a>
       </div>
       <div className="flex items-center gap-4">
-        <button className="px-4 py-2 font-semibold text-white transition-colors border rounded-lg border-primary hover:bg-primary ">
+        <button   onClick={()=>navigate("/signin")}
+        className="px-4 py-2 font-semibold text-white transition-colors border rounded-lg border-primary hover:bg-primary ">
           Login
         </button>
-        <button className="hidden px-4 py-2 font-semibold text-white transition-colors rounded-lg sm:block bg-primary hover:bg-primary-dark">
+        <button  onClick={()=>navigate("/signup")}
+        className="hidden px-4 py-2 font-semibold text-white transition-colors rounded-lg sm:block bg-primary hover:bg-primary-dark">
           Sign Up 
         </button>
       </div>
