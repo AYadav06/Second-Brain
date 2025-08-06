@@ -1,30 +1,35 @@
+import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
+  const navigate=useNavigate();
 
     const [form,setForm]=useState({"username":"","email":"","password":""});
 
-    const handleSubmit=(e:React.FormEvent)=>{
+    const handleSubmit=async(e:React.FormEvent)=>{
    e.preventDefault();
 
    try {
-    const res=fetch("https//localhost:3000/api/v1/signup");
-    
-   } catch (error) {
-    
+   const res=await axios.post("/api/v1/signup",form);
+    console.log("Signup successful:", res.data);
+
+     setForm({"username":"","email":"","password":""});
+
+     navigate("/signin")
+   } catch (error:any) {
+  console.error("Signup failed:", error.response?.data || error.message);
    }
    
     }
 
     const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
 
-        setForm({...form,[e.target.name]:[e.target.value]});
+        setForm({
+          ...form,
+          [e.target.name]:e.target.value});
 
     }
-
-  
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-dark-bg text-white">
       <div className="bg-[#1a1a35] p-8 rounded-xl shadow-lg w-full max-w-md">
