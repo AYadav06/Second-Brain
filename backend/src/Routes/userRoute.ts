@@ -27,7 +27,7 @@ const passwordSchema = z
 
 export const signUpSchema = z.object({
   username: z.string().min(2).max(10),
-  email: z.string(),
+  email: z.email("invlid email address"),
   password: passwordSchema,
 });
 
@@ -59,6 +59,7 @@ userRouter.post("/signup", async (req, res) => {
     if (err instanceof z.ZodError) {
       return res.status(400).json({
         message: "Validation failed",
+        errors: err,
       });
     }
 
