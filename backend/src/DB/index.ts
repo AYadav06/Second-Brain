@@ -22,7 +22,7 @@ const content = new Schema({
 });
 const link = new Schema({
   hash: { type: String, required: true },
-  userId: { type: Types.ObjectId, ref: "user", required: true },
+  userId: { type: Types.ObjectId, ref: "user", required: true ,unique:true},
 });
 
 export const userModel = model("userModel", user);
