@@ -6,7 +6,7 @@ import { Logo } from '../icons/Logo';
  export const Navbar: React.FC = () => {
   const navigate=useNavigate();
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between p-4 px-6  mt-5 bg-bg backdrop-blur-md text-light-text shadow-sm">
+    <nav className="sticky top-0 z-50 flex items-center justify-between p-4 px-6  bg-bg backdrop-blur-md text-light-text shadow-sm">
       <div className="flex items-center gap-3">
         <Logo/>
         <span className="text-2xl font-bold">Mind-OS</span>

@@ -12,6 +12,7 @@
  --color-light-accent:#6383d4;
  --color-bg-button:#a6bfd9;
  --color-bg:#e1e5ea;
+ --color-light-card:oklch(92.03% 0.008 253.86);
 
  /* dark  #92a8d9 */
  --color-dark-text:#edeff2;

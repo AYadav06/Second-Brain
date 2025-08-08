@@ -31,8 +31,8 @@ export const SignUp = () => {
 
     }
   return (
-    <div className="min-h-screen flex items-center justify-center bg-dark-bg text-white">
-      <div className="bg-[#1a1a35] p-8 rounded-xl shadow-lg w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-dark-bg text-light-text shadow-2xl">
+      <div className="bg-light-card p-8 rounded-xl shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Create Account</h2>
         <form onSubmit={handleSubmit}className="space-y-4">
           <input
@@ -44,7 +44,7 @@ export const SignUp = () => {
 
 
             placeholder="User Name"
-            className="w-full p-3 rounded-md bg-[#2a2a4d] text-white border border-transparent focus:outline-none focus:border-primary"
+            className="w-full p-3 rounded-md bg-light-secondary text-light-text border border-transparent focus:outline-none focus:border-light-accent"
           />
           <input
             type="email"
@@ -53,7 +53,7 @@ export const SignUp = () => {
             onChange={handleChange}
             required
             placeholder="Email"
-            className="w-full p-3 rounded-md bg-[#2a2a4d] text-white border border-transparent focus:outline-none focus:border-primary"
+            className="w-full p-3 rounded-md bg-light-secondary text-light-text border border-transparent focus:outline-none focus:border-primary"
           />
           <input
             type="password"
@@ -62,18 +62,18 @@ export const SignUp = () => {
             onChange={handleChange}
             required
             placeholder="Password"
-            className="w-full p-3 rounded-md bg-[#2a2a4d] text-white border border-transparent focus:outline-none focus:border-primary"
+            className="w-full p-3 rounded-md bg-light-secondary text-light-text border border-transparent focus:outline-none focus:border-primary"
           />
           <button
-            type="submit"
-            className="w-full bg-primary text-white font-semibold py-3 rounded-md hover:bg-opacity-90 transition"
+            type="submit"                   
+            className="w-full bg-light-secondary text-light-text font-semibold py-3 rounded-md hover:bg-opacity-90 transition"
           >
             Sign Up
           </button>
         </form>
-        <p className="mt-4 text-center text-sm text-gray-400">
+        <p className="mt-4 text-center text-sm text-gray-800">
           Already have an account?{" "}
-          <Link to="/signin" className="text-primary underline">
+          <Link to="/signin" className="text-light-text underline">
             Sign In
           </Link>
         </p>
