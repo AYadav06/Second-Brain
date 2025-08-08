@@ -3,17 +3,15 @@ import { Hero } from '../components/Hero'
 import { Navbar } from '../components/Navbar'
 import { Testimonial } from '../components/Testimonial'
 import { Footer } from '../components/Footer'
-// import NotesGrid from '@/components/NoteGrid'
+
 
 export const Home = () => {
   return (
     <div className=''>
         <Navbar />
         <Hero/> 
-        {/* <StickyNotesDemo />  */}
        <Testimonial />
        <Footer />
-        {/* <NotesGrid />  */}
     </div>
   )
 }
