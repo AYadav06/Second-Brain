@@ -1,5 +1,4 @@
-// import { Type, TypeIcon } from 'lucide-react'
-import React from 'react'
+
 import { typeIcons } from './NoteCard'
 export const SideBar = () => {
 
