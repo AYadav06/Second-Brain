@@ -18,7 +18,7 @@ import { Logo } from '../icons/Logo';
       </div>
       <div className="flex items-center gap-4">
         <button   onClick={()=>navigate("/signin")}
-        className="px-4 py-2 font-medium transition-colors shadow-sm rounded-lg hover:bg-light-secondary">
+        className="px-4 py-2 font-medium transition-colors shadow-sm rounded-lg  hover:bg-light-secondary">
           Login
         </button>
         <button  onClick={()=>navigate("/signup")}

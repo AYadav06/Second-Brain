@@ -79,7 +79,7 @@ export const Hero: React.FC = () => {
               <Button
                 onClick={() => navigate("/signup")}
                 size="lg"
-                className="bg-light-card text-light-text shadow-lg hover:bg-white"
+                className="bg-light-secondary text-light-text shadow-lg hover:bg-white"
               >
                 Get Started <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -94,7 +94,7 @@ export const Hero: React.FC = () => {
           <Button
                 onClick={handleAddBrain}
                 size="lg"
-                className="bg-light-card text-light-text shadow-lg hover:bg-white mb-5"
+                className="bg-light-secondary text-light-text shadow-lg hover:bg-white mb-5"
                 >
              <Plus className="ml-1 h-6 w-6" /> Brain
               </Button>
